@@ -58,8 +58,3 @@ def get_top10_songs():
     conn.close()
     
     return top_songs
-
-print(calc_listening_time_year(2025))
-print(calc_listening_time_month(2, 2025))
-print(get_top10_artists())
-print(get_top10_songs())
