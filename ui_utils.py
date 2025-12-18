@@ -1,9 +1,19 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtCore import QPropertyAnimation, QTimer
 import requests, traceback
 from config import AVG_SONG_DURATION
 from api_utils import get_artist_image_url, download_image_bytes, find_best_artist, get_artist_id
+from sql_utils import get_top10_artists, get_top10_songs
+
+def on_tab_changed(index, window):
+    page = window.tabWidget.widget(index)
+
+    if page is window.Songs:
+        QTimer.singleShot(0, lambda: set_progress_bars_songs(window, get_top10_songs()))
+    elif page is window.Artists:
+        QTimer.singleShot(0, lambda: set_progress_bars_artists(window, get_top10_artists()))
 
 def set_progress_bars_artists(window, top_artists):
     # top_artists is a list of tuples: (artist_name, play_count)
@@ -19,15 +29,30 @@ def set_progress_bars_artists(window, top_artists):
         window.TopArtist9Bar,
         window.TopArtist10Bar
     ]
-    
+
     # Find the maximum play count for scaling
     max_count = top_artists[0][1] if top_artists else 100
-    
-    for i, (artist_name, play_count) in enumerate(top_artists):
-        if i < len(progress_bars):
-            # Scale the play count to a percentage (0-100)
-            percentage = int((play_count / max_count) * 100)
-            progress_bars[i].setValue(percentage)
+
+    # Keep references so animations are not garbage-collected
+    window._artist_bar_animations = []
+
+    for i, (_, play_count) in enumerate(top_artists):
+        if i >= len(progress_bars):
+            break
+
+        bar = progress_bars[i]
+
+        # Scale the play count to a percentage (0-100)
+        percentage = int((play_count / max_count) * 100)
+        duration = max(50, int(1200 * (percentage / 100)))
+
+        animation = QPropertyAnimation(bar, b"value")
+        animation.setDuration(duration)     # ms
+        animation.setStartValue(0)
+        animation.setEndValue(percentage)
+        animation.start()
+
+        window._artist_bar_animations.append(animation)
 
 def set_progress_bars_songs(window, top_songs):
     # top_songs is a list of tuples: (song_title, artist_name, play_count)
@@ -43,14 +68,31 @@ def set_progress_bars_songs(window, top_songs):
         window.TopSong9Bar,
         window.TopSong10Bar
     ]
+
     # Find the maximum play count for scaling
     max_count = top_songs[0][2] if top_songs else 100
-    
-    for i, (song_title, artist_name, play_count) in enumerate(top_songs):
-        if i < len(progress_bars):
-            # Scale the play count to a percentage (0-100)
-            percentage = int((play_count / max_count) * 100)
-            progress_bars[i].setValue(percentage)
+
+    # Keep references so animations don’t get garbage-collected
+    window._song_bar_animations = []
+
+    for i, (_, _, play_count) in enumerate(top_songs):
+        if i >= len(progress_bars):
+            break
+
+        bar = progress_bars[i]
+
+        # Scale the play count to a percentage (0-100)
+        percentage = int((play_count / max_count) * 100)
+        duration = max(50, int(1200 * (percentage / 100)))
+
+        animation = QPropertyAnimation(bar, b"value")
+        animation.setDuration(duration)          # ms
+        animation.setStartValue(0)
+        animation.setEndValue(percentage)
+        animation.start()
+
+        window._song_bar_animations.append(animation)
+
 
 def set_artist_labels(window, top_artists):
     # top_artists is a list of tuples: (artist_name, play_count)
