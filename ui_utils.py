@@ -3,7 +3,7 @@ from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QVBoxLayout
 from config import AVG_SONG_DURATION
 
-def set_progress_bars(window, top_artists):
+def set_progress_bars_artists(window, top_artists):
     # top_artists is a list of tuples: (artist_name, play_count)
     progress_bars = [
         window.TopArtist1Bar,
@@ -27,6 +27,29 @@ def set_progress_bars(window, top_artists):
             percentage = int((play_count / max_count) * 100)
             progress_bars[i].setValue(percentage)
 
+def set_progress_bars_songs(window, top_songs):
+    # top_songs is a list of tuples: (song_title, artist_name, play_count)
+    progress_bars = [
+        window.TopSong1Bar,
+        window.TopSong2Bar,
+        window.TopSong3Bar,
+        window.TopSong4Bar,
+        window.TopSong5Bar,
+        window.TopSong6Bar,
+        window.TopSong7Bar,
+        window.TopSong8Bar,
+        window.TopSong9Bar,
+        window.TopSong10Bar
+    ]
+    # Find the maximum play count for scaling
+    max_count = top_songs[0][2] if top_songs else 100
+    
+    for i, (song_title, artist_name, play_count) in enumerate(top_songs):
+        if i < len(progress_bars):
+            # Scale the play count to a percentage (0-100)
+            percentage = int((play_count / max_count) * 100)
+            progress_bars[i].setValue(percentage)
+
 def set_artist_labels(window, top_artists):
     # top_artists is a list of tuples: (artist_name, play_count)
     labels = [
@@ -45,3 +68,22 @@ def set_artist_labels(window, top_artists):
     for i, (artist_name, play_count) in enumerate(top_artists):
         if i < len(labels):
             labels[i].setText(f"{artist_name} ({play_count*AVG_SONG_DURATION:.0f} min)")
+
+def set_song_labels(window, top_songs):
+    # top_songs is a list of tuples: (song_title, artist_name, play_count)
+    labels = [
+        window.TopSong1Label,
+        window.TopSong2Label,
+        window.TopSong3Label,
+        window.TopSong4Label,
+        window.TopSong5Label,
+        window.TopSong6Label,
+        window.TopSong7Label,
+        window.TopSong8Label,
+        window.TopSong9Label,
+        window.TopSong10Label
+    ]
+    
+    for i, (song_title, artist_name, play_count) in enumerate(top_songs):
+        if i < len(labels):
+            labels[i].setText(f"{song_title} - {artist_name} ({play_count*AVG_SONG_DURATION:.0f} min)")
