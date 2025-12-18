@@ -28,17 +28,61 @@ QTabBar::tab {
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QProgressBar" name="TopArtist1Bar">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>50</y>
-      <width>801</width>
-      <height>61</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1290</width>
+      <height>790</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true">QProgressBar {
+     <string notr="true">QTabWidget::pane { 
+    border: 0;
+}
+QTabBar::tab {
+    background: transparent;
+    color: lightgray;
+    padding: 10px;
+}
+QTabBar::tab:selected {
+    background: #ffff1f;  /* Spotify green highlight */
+    color: black;
+    border-radius: 10px;
+}</string>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="Artists">
+     <attribute name="title">
+      <string>Artists</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Top 10 artist</string>
+     </attribute>
+     <widget class="QProgressBar" name="TopArtist9Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>590</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -49,31 +93,28 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="maximum">
-     <number>100</number>
-    </property>
-    <property name="value">
-     <number>100</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="textDirection">
-     <enum>QProgressBar::TopToBottom</enum>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist2Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>120</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist6Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>380</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -84,25 +125,53 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist3Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>190</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist3Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>180</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist3Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>170</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -113,28 +182,53 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist4Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>260</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist9Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>600</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist8Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>520</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -145,28 +239,78 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist5Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>330</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist6Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>390</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist7Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>460</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist4Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>240</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -177,28 +321,53 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist6Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>400</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist5Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>320</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist10Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>660</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -209,28 +378,28 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist7Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>470</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist7Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>450</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -241,28 +410,28 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist8Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>540</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist2Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>100</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -273,28 +442,50 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist9Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>610</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist10Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>670</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist1Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>30</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -305,28 +496,131 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="TopArtist10Bar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>680</y>
-      <width>801</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QProgressBar {
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>100</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="textDirection">
+       <enum>QProgressBar::TopToBottom</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist2Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>110</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist8Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>530</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist1Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>40</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopArtist4Label">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>250</y>
+        <width>790</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="TopArtist5Bar">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>310</y>
+        <width>801</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
     border: 0px;
     background: transparent;
     border-radius: 3px;
@@ -337,289 +631,47 @@ QProgressBar::chunk {
     background: #ffff1f;
     border-radius: 3px;
 }</string>
-    </property>
-    <property name="value">
-     <number>50</number>
-    </property>
-    <property name="textVisible">
-     <bool>false</bool>
-    </property>
-    <property name="format">
-     <string/>
-    </property>
+      </property>
+      <property name="value">
+       <number>50</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+      <property name="format">
+       <string/>
+      </property>
+     </widget>
+     <zorder>TopArtist9Bar</zorder>
+     <zorder>TopArtist6Bar</zorder>
+     <zorder>TopArtist3Bar</zorder>
+     <zorder>TopArtist9Label</zorder>
+     <zorder>TopArtist8Bar</zorder>
+     <zorder>TopArtist6Label</zorder>
+     <zorder>TopArtist4Bar</zorder>
+     <zorder>TopArtist10Bar</zorder>
+     <zorder>TopArtist7Bar</zorder>
+     <zorder>TopArtist2Bar</zorder>
+     <zorder>TopArtist10Label</zorder>
+     <zorder>TopArtist1Bar</zorder>
+     <zorder>TopArtist2Label</zorder>
+     <zorder>TopArtist8Label</zorder>
+     <zorder>TopArtist1Label</zorder>
+     <zorder>TopArtist4Label</zorder>
+     <zorder>TopArtist5Bar</zorder>
+     <zorder>TopArtist7Label</zorder>
+     <zorder>TopArtist5Label</zorder>
+     <zorder>TopArtist3Label</zorder>
+    </widget>
+    <widget class="QWidget" name="Songs">
+     <attribute name="title">
+      <string>Songs</string>
+     </attribute>
+     <attribute name="toolTip">
+      <string>Top 10 songs</string>
+     </attribute>
+    </widget>
    </widget>
-   <widget class="QLabel" name="TopArtist1Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>60</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist2Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>130</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist3Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>200</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist5Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>340</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist4Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>270</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist10Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>690</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist6Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>410</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist8Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>550</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist9Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>620</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="TopArtist7Label">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>480</y>
-      <width>790</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Lucida Sans</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-color: black;</string>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1280</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <widget class="QMenu" name="menuStats">
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="title">
-     <string>Stats</string>
-    </property>
-   </widget>
-   <addaction name="menuStats"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
