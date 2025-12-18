@@ -1,7 +1,9 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QVBoxLayout
+import requests, traceback
 from config import AVG_SONG_DURATION
+from api_utils import get_artist_image_url, download_image_bytes, find_best_artist, get_artist_id
 
 def set_progress_bars_artists(window, top_artists):
     # top_artists is a list of tuples: (artist_name, play_count)
@@ -87,3 +89,53 @@ def set_song_labels(window, top_songs):
     for i, (song_title, artist_name, play_count) in enumerate(top_songs):
         if i < len(labels):
             labels[i].setText(f"{song_title} - {artist_name} ({play_count*AVG_SONG_DURATION:.0f} min)")
+
+def set_top_artist_images(window, top_10_artists, sp):
+    image_labels = [
+        window.TopArtist1Image, window.TopArtist2Image, window.TopArtist3Image,
+        window.TopArtist4Image, window.TopArtist5Image, window.TopArtist6Image,
+        window.TopArtist7Image, window.TopArtist8Image, window.TopArtist9Image,
+        window.TopArtist10Image
+    ]
+
+    for i, (artist_name, _) in enumerate(top_10_artists):
+        if i >= len(image_labels):
+            break
+
+        label = image_labels[i]
+        label.clear()
+        label.setText("")
+
+        try:
+            # Get more than 1 result so we can avoid wrong matches (e.g., Adele)
+            results = sp.search(q=f'artist:"{artist_name}"', type="artist", limit=10)
+            items = results["artists"]["items"]
+
+            if not items:
+                label.setText("No artist")
+                continue
+
+            # Pick the most likely "official" artist (usually highest popularity)
+            best = max(items, key=lambda a: a.get("popularity", 0))
+
+            images = best.get("images", [])
+            if not images:
+                label.setText("No image")
+                continue
+
+            image_url = images[0]["url"]  # largest
+
+            r = requests.get(image_url, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
+            r.raise_for_status()
+
+            px = QPixmap()
+            if not px.loadFromData(r.content):
+                label.setText("Bad image")
+                continue
+
+            label.setPixmap(px)
+            label.setScaledContents(True)
+
+        except Exception as e:
+            label.setText("Image error")
+            print(f"[Image error] {artist_name}: {e}")
