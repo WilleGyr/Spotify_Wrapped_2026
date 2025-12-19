@@ -63,7 +63,7 @@ QTabBar::tab:selected {
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Artists">
      <attribute name="title">
@@ -75,9 +75,9 @@ QTabBar::tab:selected {
      <widget class="QProgressBar" name="TopArtist9Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>590</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -107,9 +107,9 @@ QProgressBar::chunk {
      <widget class="QProgressBar" name="TopArtist6Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>380</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -139,9 +139,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist3Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>180</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -164,9 +164,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopArtist3Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>170</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -203,9 +203,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist9Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>600</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -228,9 +228,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopArtist8Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>520</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -260,9 +260,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist6Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>390</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -285,9 +285,9 @@ color: black;</string>
      <widget class="QLabel" name="TopArtist7Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>460</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -310,9 +310,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopArtist4Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>240</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -342,9 +342,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist5Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>320</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -367,9 +367,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopArtist10Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>660</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -399,9 +399,9 @@ QProgressBar::chunk {
      <widget class="QProgressBar" name="TopArtist7Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>450</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -431,9 +431,9 @@ QProgressBar::chunk {
      <widget class="QProgressBar" name="TopArtist2Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>100</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -460,9 +460,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist10Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>670</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -485,9 +485,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopArtist1Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>30</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -520,9 +520,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist2Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>110</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -545,9 +545,9 @@ color: black;</string>
      <widget class="QLabel" name="TopArtist8Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>530</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -570,9 +570,9 @@ color: black;</string>
      <widget class="QLabel" name="TopArtist1Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>40</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -595,9 +595,9 @@ color: black;</string>
      <widget class="QLabel" name="TopArtist4Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>250</y>
-        <width>1060</width>
+        <width>1109</width>
         <height>41</height>
        </rect>
       </property>
@@ -620,9 +620,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopArtist5Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>310</y>
-        <width>1071</width>
+        <width>1120</width>
         <height>61</height>
        </rect>
       </property>
@@ -652,7 +652,7 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist1Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>30</y>
         <width>61</width>
         <height>61</height>
@@ -668,14 +668,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist2Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>100</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist2</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -684,14 +684,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist4Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>240</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist4</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -700,14 +700,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist3Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>170</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist3</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -716,14 +716,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist7Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>450</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist7</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -732,14 +732,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist6Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>380</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist6</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -748,14 +748,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist8Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>520</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist8</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -764,14 +764,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist5Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>310</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist5</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -780,14 +780,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist9Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>590</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist9</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -796,14 +796,14 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopArtist10Image">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>60</x>
         <y>660</y>
         <width>61</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
-       <string>Artist1</string>
+       <string>Artist10</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -850,9 +850,9 @@ QProgressBar::chunk {
      <widget class="QProgressBar" name="TopSong6Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>380</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -882,9 +882,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopSong3Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>180</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -907,9 +907,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopSong3Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>170</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -939,9 +939,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopSong9Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>600</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -964,9 +964,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopSong8Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>520</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -996,9 +996,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopSong6Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>390</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1021,9 +1021,9 @@ color: black;</string>
      <widget class="QLabel" name="TopSong7Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>460</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1046,9 +1046,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopSong4Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>240</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -1078,9 +1078,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopSong5Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>320</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1103,9 +1103,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopSong10Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>660</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -1135,9 +1135,9 @@ QProgressBar::chunk {
      <widget class="QProgressBar" name="TopSong7Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>450</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -1167,9 +1167,9 @@ QProgressBar::chunk {
      <widget class="QProgressBar" name="TopSong2Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>100</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -1196,9 +1196,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopSong10Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>670</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1221,9 +1221,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopSong1Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>30</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -1256,9 +1256,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopSong2Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>110</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1281,9 +1281,9 @@ color: black;</string>
      <widget class="QLabel" name="TopSong8Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>530</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1306,9 +1306,9 @@ color: black;</string>
      <widget class="QLabel" name="TopSong1Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>40</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1331,9 +1331,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopSong9Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>590</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -1363,9 +1363,9 @@ QProgressBar::chunk {
      <widget class="QLabel" name="TopSong4Label">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>140</x>
         <y>250</y>
-        <width>1059</width>
+        <width>1110</width>
         <height>41</height>
        </rect>
       </property>
@@ -1388,9 +1388,9 @@ color: black;</string>
      <widget class="QProgressBar" name="TopSong5Bar">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>130</x>
         <y>310</y>
-        <width>1070</width>
+        <width>1121</width>
         <height>61</height>
        </rect>
       </property>
@@ -1417,6 +1417,166 @@ QProgressBar::chunk {
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="TopSong1Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong7Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>450</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song7</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong5Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>310</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song5</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong10Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>660</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song10</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong9Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>590</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song9</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong3Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>170</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song3</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong2Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>100</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong4Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>240</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song4</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong6Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>380</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song6</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="TopSong8Image">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>520</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Song8</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
      <zorder>TopSong6Bar</zorder>
      <zorder>TopSong3Bar</zorder>
      <zorder>TopSong8Bar</zorder>
@@ -1437,6 +1597,16 @@ QProgressBar::chunk {
      <zorder>TopSong9Label</zorder>
      <zorder>TopSong10Label</zorder>
      <zorder>TopSong7Label</zorder>
+     <zorder>TopSong1Image</zorder>
+     <zorder>TopSong7Image</zorder>
+     <zorder>TopSong5Image</zorder>
+     <zorder>TopSong10Image</zorder>
+     <zorder>TopSong9Image</zorder>
+     <zorder>TopSong3Image</zorder>
+     <zorder>TopSong2Image</zorder>
+     <zorder>TopSong4Image</zorder>
+     <zorder>TopSong6Image</zorder>
+     <zorder>TopSong8Image</zorder>
     </widget>
    </widget>
   </widget>
