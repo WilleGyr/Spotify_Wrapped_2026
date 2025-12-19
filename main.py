@@ -11,20 +11,22 @@ from api_utils import get_spotify_credentials
 
 if __name__ == "__main__":
     #getGoogleSheets_to_sqlite(SPREADSHEET_ID, outDir="data", dbFile="spotify_listenings.db")
+    # Load UI
+    app = QtWidgets.QApplication(sys.argv)
+    base_path = os.path.dirname(__file__)
+    ui_path = os.path.join(base_path, "ui/main.ui")
+    window = uic.loadUi(ui_path)
+    window.LoadingLabel.raise_()
+    window.LoadingLabel.show()
+    window.show()
+    QtWidgets.QApplication.processEvents()
+    window.tabWidget.currentChanged.connect(lambda index: on_tab_changed(index, window))
 
     SPREADSHEET_ID, CLIENT_ID, CLIENT_SECRET = get_spotify_credentials()
     sp=spotipy.Spotify(auth_manager=SpotifyClientCredentials(
         client_id=CLIENT_ID,
         client_secret=CLIENT_SECRET
     ))
-
-    # Load UI
-    app = QtWidgets.QApplication(sys.argv)
-    base_path = os.path.dirname(__file__)
-    ui_path = os.path.join(base_path, "ui/main.ui")
-    window = uic.loadUi(ui_path)
-    window.show()
-    window.tabWidget.currentChanged.connect(lambda index: on_tab_changed(index, window))
 
     set_progress_bars_artists(window, get_top10_artists())
     set_artist_labels(window, get_top10_artists())
@@ -33,5 +35,6 @@ if __name__ == "__main__":
     set_song_labels(window, get_top10_songs())
 
     set_top_artist_images(window, get_top10_artists(), sp)
+    window.LoadingLabel.hide()
     
     sys.exit(app.exec_())

@@ -809,6 +809,33 @@ QProgressBar::chunk {
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QLabel" name="LoadingLabel">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-30</y>
+        <width>1271</width>
+        <height>771</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Sans</family>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(30, 30, 30);
+color: rgb(255, 255, 31);</string>
+      </property>
+      <property name="text">
+       <string>Loading...</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <zorder>LoadingLabel</zorder>
      <zorder>TopArtist9Bar</zorder>
      <zorder>TopArtist6Bar</zorder>
      <zorder>TopArtist3Bar</zorder>
