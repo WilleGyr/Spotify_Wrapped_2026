@@ -111,7 +111,7 @@ def set_artist_labels(window, top_artists):
     
     for i, (artist_name, play_count) in enumerate(top_artists):
         if i < len(labels):
-            labels[i].setText(f"{artist_name} ({play_count*AVG_SONG_DURATION:.0f} min)")
+            labels[i].setText(f"{artist_name} ({play_count*AVG_SONG_DURATION:.0f} min / {play_count} plays)")
 
 def set_song_labels(window, top_songs):
     # top_songs is a list of tuples: (song_title, artist_name, play_count)
@@ -130,7 +130,7 @@ def set_song_labels(window, top_songs):
     
     for i, (song_title, artist_name, play_count) in enumerate(top_songs):
         if i < len(labels):
-            labels[i].setText(f"{song_title} - {artist_name} ({play_count*AVG_SONG_DURATION:.0f} min)")
+            labels[i].setText(f"{song_title} - {artist_name} ({play_count*AVG_SONG_DURATION:.0f} min / {play_count} plays)")
 
 def set_top_artist_images(window, top_10_artists, sp):
     image_labels = [
