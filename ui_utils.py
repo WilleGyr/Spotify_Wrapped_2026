@@ -93,7 +93,6 @@ def set_progress_bars_songs(window, top_songs):
 
         window._song_bar_animations.append(animation)
 
-
 def set_artist_labels(window, top_artists):
     # top_artists is a list of tuples: (artist_name, play_count)
     labels = [
@@ -182,7 +181,6 @@ def set_top_artist_images(window, top_10_artists, sp):
             label.setText("Image error")
             print(f"[Image error] {artist_name}: {e}")
 
-
 def set_top_song_images(window, top_10_songs, sp):
     image_labels = [
         window.TopSong1Image, window.TopSong2Image, window.TopSong3Image,
@@ -232,3 +230,8 @@ def set_top_song_images(window, top_10_songs, sp):
         except Exception as e:
             label.setText("Image error")
             print(f"[Image error] {artist_name} - {song_title}: {e}")
+
+def set_stat_values(window, sp):
+    # name of most played artist
+    window.TopArtistStat.setText(f"{get_top10_artists()[0][0] if get_top10_artists() else 'N/A'}")
+    window.TopSongStat.setText(f"{get_top10_songs()[0][0] if get_top10_songs() else 'N/A'}")
