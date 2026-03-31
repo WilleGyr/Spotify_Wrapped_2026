@@ -181,3 +181,54 @@ def set_top_artist_images(window, top_10_artists, sp):
         except Exception as e:
             label.setText("Image error")
             print(f"[Image error] {artist_name}: {e}")
+
+
+def set_top_song_images(window, top_10_songs, sp):
+    image_labels = [
+        window.TopSong1Image, window.TopSong2Image, window.TopSong3Image,
+        window.TopSong4Image, window.TopSong5Image, window.TopSong6Image,
+        window.TopSong7Image, window.TopSong8Image, window.TopSong9Image,
+        window.TopSong10Image
+    ]
+
+    for i, (song_title, artist_name, _) in enumerate(top_10_songs):
+        if i >= len(image_labels):
+            break
+
+        label = image_labels[i]
+        label.clear()
+        label.setText("")
+
+        try:
+            query = f'track:"{song_title}" artist:"{artist_name}"'
+            results = sp.search(q=query, type="track", limit=10)
+            items = results["tracks"]["items"]
+
+            if not items:
+                label.setText("No track")
+                continue
+
+            best = max(items, key=lambda t: t.get("popularity", 0))
+            album = best.get("album", {})
+            images = album.get("images", [])
+
+            if not images:
+                label.setText("No image")
+                continue
+
+            image_url = images[0]["url"]  # largest
+
+            r = requests.get(image_url, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
+            r.raise_for_status()
+
+            px = QPixmap()
+            if not px.loadFromData(r.content):
+                label.setText("Bad image")
+                continue
+
+            label.setPixmap(px)
+            label.setScaledContents(True)
+
+        except Exception as e:
+            label.setText("Image error")
+            print(f"[Image error] {artist_name} - {song_title}: {e}")
