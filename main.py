@@ -3,7 +3,7 @@ from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QVBoxLayout
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-from ui_utils import set_progress_bars_artists, set_artist_labels, set_progress_bars_songs, set_song_labels, set_top_artist_images, on_tab_changed
+from ui_utils import set_progress_bars_artists, set_artist_labels, set_progress_bars_songs, set_song_labels, set_top_artist_images, set_top_song_images, on_tab_changed, set_stat_values
 from sql_utils import get_top10_artists, get_top10_songs
 import sys, time, os, json
 from config import AVG_SONG_DURATION
@@ -35,6 +35,8 @@ if __name__ == "__main__":
     set_song_labels(window, get_top10_songs())
 
     set_top_artist_images(window, get_top10_artists(), sp)
+    set_top_song_images(window, get_top10_songs(), sp)
+    set_stat_values(window, sp)
     window.LoadingLabel.hide()
     
     sys.exit(app.exec_())

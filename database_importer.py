@@ -4,7 +4,10 @@ import csv
 import sqlite3
 import requests
 from datetime import datetime
-from config import SPREADSHEET_ID
+#from config import SPREADSHEET_ID
+from api_utils import get_spotify_credentials
+
+SPREADSHEET_ID, CLIENT_ID, CLIENT_SECRET = get_spotify_credentials()
 
 def _parse_dt(value: str) -> str:
     value = (value or "").strip()

@@ -69,286 +69,427 @@ QTabBar::tab:selected {
      <attribute name="title">
       <string>Stats</string>
      </attribute>
-     <widget class="QLabel" name="TopArtistLabelStat">
+
+     <!-- ── RIGHT PANEL: artist photo + top song card ── -->
+     <!-- Large artist backdrop fills the right column -->
+     <widget class="QLabel" name="StatsArtistImage">
+      <property name="geometry"><rect><x>845</x><y>0</y><width>435</width><height>510</height></rect></property>
+      <property name="styleSheet"><string notr="true">background-color: rgb(20,20,20);</string></property>
+      <property name="text"><string/></property>
+     </widget>
+
+     <!-- Top song card below the artist image -->
+     <widget class="QFrame" name="StatsSongCard">
+      <property name="geometry"><rect><x>845</x><y>515</y><width>435</width><height>245</height></rect></property>
+      <property name="styleSheet">
+       <string notr="true">QFrame#StatsSongCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
+      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="StatsSongAlbumImage">
+       <property name="geometry"><rect><x>12</x><y>12</y><width>155</width><height>155</height></rect></property>
+       <property name="styleSheet"><string notr="true">background-color: rgb(60,60,60); border-radius: 6px;</string></property>
+       <property name="text"><string/></property>
+      </widget>
+      <widget class="QLabel" name="StatsSongCardTopLabel">
+       <property name="geometry"><rect><x>178</x><y>12</y><width>245</width><height>20</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>TOP SONG</string></property>
+      </widget>
+      <widget class="QLabel" name="StatsSongNameStat">
+       <property name="geometry"><rect><x>178</x><y>38</y><width>245</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>14</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+       <property name="wordWrap"><bool>true</bool></property>
+      </widget>
+      <widget class="QLabel" name="StatsSongArtistStat">
+       <property name="geometry"><rect><x>178</x><y>114</y><width>245</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>9</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(200,200,200);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
+      <widget class="QLabel" name="StatsSongPlaysLabel">
+       <property name="geometry"><rect><x>178</x><y>142</y><width>245</width><height>20</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(150,150,150);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
+     </widget>
+
+     <!-- ── LEFT PANEL: title + 3×3 cards + monthly bars ── -->
+     <!-- Cards: w=255, col1=10, col2=290, col3=570, rows at y=82/222/362 -->
+
+     <!-- Page title (left-aligned to the panel) -->
+     <widget class="QLabel" name="StatsTitleLabel">
       <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>60</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
+       <rect><x>0</x><y>12</y><width>835</width><height>55</height></rect>
       </property>
       <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
+       <font><family>Lucida Sans</family><pointsize>24</pointsize><weight>75</weight><bold>true</bold></font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">background-color: transparent; color: rgb(255, 255, 31);</string>
       </property>
-      <property name="text">
-       <string>Top Artist</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
+      <property name="text"><string>Your 2026 Wrapped</string></property>
+      <property name="alignment"><set>Qt::AlignCenter</set></property>
      </widget>
-     <widget class="QLabel" name="TopSongLabelStat">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>120</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 1, Card 1: Top Artist -->
+     <widget class="QFrame" name="TopArtistCard">
+      <property name="geometry"><rect><x>10</x><y>82</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#TopArtistCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Top Song</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="TopArtistCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>TOP ARTIST</string></property>
+      </widget>
+      <widget class="QLabel" name="TopArtistStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+       <property name="wordWrap"><bool>true</bool></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="MinutesLabelStat">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>180</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 1, Card 2: Top Song -->
+     <widget class="QFrame" name="TopSongCard">
+      <property name="geometry"><rect><x>290</x><y>82</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#TopSongCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Minutes</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="TopSongCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>TOP SONG</string></property>
+      </widget>
+      <widget class="QLabel" name="TopSongStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+       <property name="wordWrap"><bool>true</bool></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="SongsLabelStat">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>230</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 1, Card 3: Minutes Listened -->
+     <widget class="QFrame" name="MinutesCard">
+      <property name="geometry"><rect><x>570</x><y>82</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#MinutesCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Songs</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="MinutesCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>MINUTES LISTENED</string></property>
+      </widget>
+      <widget class="QLabel" name="MinutesStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="ArtistsLabelStat">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>280</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 2, Card 1: Total Plays -->
+     <widget class="QFrame" name="TotalPlaysCard">
+      <property name="geometry"><rect><x>10</x><y>222</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#TotalPlaysCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Artists</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="TotalPlaysCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>TOTAL PLAYS</string></property>
+      </widget>
+      <widget class="QLabel" name="TotalPlaysStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="ArtistsStat">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>280</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 2, Card 2: Unique Songs -->
+     <widget class="QFrame" name="UniqueSongsCard">
+      <property name="geometry"><rect><x>290</x><y>222</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#UniqueSongsCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Artists</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="UniqueSongsCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>UNIQUE SONGS</string></property>
+      </widget>
+      <widget class="QLabel" name="SongsStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="TopSongStat">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>120</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 2, Card 3: Unique Artists -->
+     <widget class="QFrame" name="UniqueArtistsCard">
+      <property name="geometry"><rect><x>570</x><y>222</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#UniqueArtistsCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Top Song</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="UniqueArtistsCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>UNIQUE ARTISTS</string></property>
+      </widget>
+      <widget class="QLabel" name="ArtistsStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="TopArtistStat">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>60</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 3, Card 1: Avg Plays/Day -->
+     <widget class="QFrame" name="AvgDayCard">
+      <property name="geometry"><rect><x>10</x><y>362</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#AvgDayCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Top Artist</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="AvgDayCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>AVG MIN PER DAY</string></property>
+      </widget>
+      <widget class="QLabel" name="AvgDayStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="MinutesStat">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>180</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 3, Card 2: Top Artist Unique Songs -->
+     <widget class="QFrame" name="TopArtistSongsCard">
+      <property name="geometry"><rect><x>290</x><y>362</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#TopArtistSongsCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Minutes</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="TopArtistSongsCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>TOP ARTIST — UNIQUE SONGS</string></property>
+      </widget>
+      <widget class="QLabel" name="TopArtistSongsStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="SongsStat">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>230</y>
-        <width>130</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Lucida Sans</family>
-        <pointsize>15</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
+
+     <!-- Row 3, Card 3: Hours Listened -->
+     <widget class="QFrame" name="HoursCard">
+      <property name="geometry"><rect><x>570</x><y>362</y><width>255</width><height>120</height></rect></property>
       <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-color: rgb(255, 255, 31);</string>
+       <string notr="true">QFrame#HoursCard { background-color: rgb(45,45,45); border-radius: 12px; }</string>
       </property>
-      <property name="text">
-       <string>Songs</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
+      <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+      <widget class="QLabel" name="HoursCardLabel">
+       <property name="geometry"><rect><x>15</x><y>12</y><width>225</width><height>22</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>10</pointsize></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+       <property name="text"><string>HOURS LISTENED</string></property>
+      </widget>
+      <widget class="QLabel" name="HoursStat">
+       <property name="geometry"><rect><x>15</x><y>36</y><width>225</width><height>70</height></rect></property>
+       <property name="font"><font><family>Lucida Sans</family><pointsize>18</pointsize><weight>75</weight><bold>true</bold></font></property>
+       <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+       <property name="text"><string>—</string></property>
+      </widget>
      </widget>
+
+     <!-- ── Monthly Listening Section (left panel, bars width=755) ── -->
+     <widget class="QLabel" name="MonthlyTitle">
+      <property name="geometry"><rect><x>10</x><y>502</y><width>300</width><height>28</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>11</pointsize><weight>75</weight><bold>true</bold></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(255,255,31);</string></property>
+      <property name="text"><string>Monthly Listening</string></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthJanLabel">
+      <property name="geometry"><rect><x>10</x><y>540</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Jan</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthJanBar">
+      <property name="geometry"><rect><x>75</x><y>540</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthFebLabel">
+      <property name="geometry"><rect><x>10</x><y>558</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Feb</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthFebBar">
+      <property name="geometry"><rect><x>75</x><y>558</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthMarLabel">
+      <property name="geometry"><rect><x>10</x><y>576</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Mar</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthMarBar">
+      <property name="geometry"><rect><x>75</x><y>576</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthAprLabel">
+      <property name="geometry"><rect><x>10</x><y>594</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Apr</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthAprBar">
+      <property name="geometry"><rect><x>75</x><y>594</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthMayLabel">
+      <property name="geometry"><rect><x>10</x><y>612</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>May</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthMayBar">
+      <property name="geometry"><rect><x>75</x><y>612</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthJunLabel">
+      <property name="geometry"><rect><x>10</x><y>630</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Jun</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthJunBar">
+      <property name="geometry"><rect><x>75</x><y>630</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthJulLabel">
+      <property name="geometry"><rect><x>10</x><y>648</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Jul</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthJulBar">
+      <property name="geometry"><rect><x>75</x><y>648</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthAugLabel">
+      <property name="geometry"><rect><x>10</x><y>666</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Aug</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthAugBar">
+      <property name="geometry"><rect><x>75</x><y>666</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthSepLabel">
+      <property name="geometry"><rect><x>10</x><y>684</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Sep</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthSepBar">
+      <property name="geometry"><rect><x>75</x><y>684</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthOctLabel">
+      <property name="geometry"><rect><x>10</x><y>702</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Oct</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthOctBar">
+      <property name="geometry"><rect><x>75</x><y>702</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthNovLabel">
+      <property name="geometry"><rect><x>10</x><y>720</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Nov</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthNovBar">
+      <property name="geometry"><rect><x>75</x><y>720</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
+     <widget class="QLabel" name="MonthDecLabel">
+      <property name="geometry"><rect><x>10</x><y>738</y><width>55</width><height>14</height></rect></property>
+      <property name="font"><font><family>Lucida Sans</family><pointsize>7</pointsize></font></property>
+      <property name="styleSheet"><string notr="true">background-color: transparent; color: rgb(180,180,180);</string></property>
+      <property name="text"><string>Dec</string></property>
+     </widget>
+     <widget class="QProgressBar" name="MonthDecBar">
+      <property name="geometry"><rect><x>75</x><y>738</y><width>755</width><height>14</height></rect></property>
+      <property name="styleSheet"><string notr="true">QProgressBar { border: 0px; background: rgb(60,60,60); border-radius: 3px; } QProgressBar::chunk { background: #ffff1f; border-radius: 3px; }</string></property>
+      <property name="value"><number>0</number></property>
+      <property name="textVisible"><bool>false</bool></property>
+     </widget>
+
     </widget>
     <widget class="QWidget" name="Artists">
      <attribute name="title">

@@ -5,7 +5,12 @@ from PyQt5.QtCore import QPropertyAnimation, QTimer
 import requests, traceback
 from config import AVG_SONG_DURATION
 from api_utils import get_artist_image_url, download_image_bytes, find_best_artist, get_artist_id
-from sql_utils import get_top10_artists, get_top10_songs
+from sql_utils import (
+    get_top10_artists, get_top10_songs,
+    get_total_plays, get_unique_artists_count, get_unique_songs_count,
+    get_avg_plays_per_day, get_monthly_plays, get_top_artist_song_count,
+    calc_listening_time_year,
+)
 
 def on_tab_changed(index, window):
     page = window.tabWidget.widget(index)
@@ -231,7 +236,97 @@ def set_top_song_images(window, top_10_songs, sp):
             label.setText("Image error")
             print(f"[Image error] {artist_name} - {song_title}: {e}")
 
+def _load_pixmap_from_url(url):
+    r = requests.get(url, timeout=20, headers={"User-Agent": "Mozilla/5.0"})
+    r.raise_for_status()
+    px = QPixmap()
+    px.loadFromData(r.content)
+    return px
+
 def set_stat_values(window, sp):
-    # name of most played artist
-    window.TopArtistStat.setText(f"{get_top10_artists()[0][0] if get_top10_artists() else 'N/A'}")
-    window.TopSongStat.setText(f"{get_top10_songs()[0][0] if get_top10_songs() else 'N/A'}")
+    from PyQt5.QtCore import Qt
+
+    top_artists = get_top10_artists()
+    top_songs = get_top10_songs()
+    total_plays = get_total_plays()
+    unique_songs = get_unique_songs_count()
+    unique_artists = get_unique_artists_count()
+    avg_per_day = get_avg_plays_per_day()
+    top_artist_name, top_artist_unique_songs = get_top_artist_song_count()
+    minutes = calc_listening_time_year(2026)
+    monthly = get_monthly_plays(2026)
+
+    window.TopArtistStat.setText(top_artists[0][0] if top_artists else "N/A")
+    window.TopSongStat.setText(top_songs[0][0] if top_songs else "N/A")
+    window.MinutesStat.setText(f"{minutes:,.0f}")
+    window.HoursStat.setText(f"{minutes / 60:,.0f}")
+    window.TotalPlaysStat.setText(f"{total_plays:,}")
+    window.SongsStat.setText(f"{unique_songs:,}")
+    window.ArtistsStat.setText(f"{unique_artists:,}")
+    window.AvgDayStat.setText(f"{avg_per_day * AVG_SONG_DURATION:.1f}")
+    window.TopArtistSongsStat.setText(f"{top_artist_unique_songs}")
+
+    # Song card labels
+    if top_songs:
+        song_title, song_artist, song_plays = top_songs[0]
+        window.StatsSongNameStat.setText(song_title)
+        window.StatsSongArtistStat.setText(song_artist)
+        window.StatsSongPlaysLabel.setText(f"{song_plays} plays · ~{song_plays * AVG_SONG_DURATION:.0f} min")
+
+    # Artist backdrop image
+    if top_artists:
+        artist_name = top_artists[0][0]
+        try:
+            results = sp.search(q=f'artist:"{artist_name}"', type="artist", limit=10)
+            items = results["artists"]["items"]
+            if items:
+                best = max(items, key=lambda a: a.get("popularity", 0))
+                images = best.get("images", [])
+                if images:
+                    px = _load_pixmap_from_url(images[0]["url"])
+                    lbl = window.StatsArtistImage
+                    scaled = px.scaled(lbl.width(), lbl.height(),
+                                       Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
+                    # centre-crop to label size
+                    x_off = max(0, (scaled.width() - lbl.width()) // 2)
+                    y_off = max(0, (scaled.height() - lbl.height()) // 2)
+                    cropped = scaled.copy(x_off, y_off, lbl.width(), lbl.height())
+                    lbl.setPixmap(cropped)
+        except Exception as e:
+            print(f"[Stats artist image] {e}")
+
+    # Song album art
+    if top_songs:
+        song_title, song_artist, _ = top_songs[0]
+        try:
+            results = sp.search(q=f'track:"{song_title}" artist:"{song_artist}"', type="track", limit=10)
+            items = results["tracks"]["items"]
+            if items:
+                best = max(items, key=lambda t: t.get("popularity", 0))
+                images = best.get("album", {}).get("images", [])
+                if images:
+                    px = _load_pixmap_from_url(images[0]["url"])
+                    lbl = window.StatsSongAlbumImage
+                    scaled = px.scaled(lbl.width(), lbl.height(),
+                                       Qt.KeepAspectRatio, Qt.SmoothTransformation)
+                    lbl.setPixmap(scaled)
+                    lbl.setAlignment(Qt.AlignCenter)
+        except Exception as e:
+            print(f"[Stats song image] {e}")
+
+    month_bars = [
+        window.MonthJanBar, window.MonthFebBar, window.MonthMarBar,
+        window.MonthAprBar, window.MonthMayBar, window.MonthJunBar,
+        window.MonthJulBar, window.MonthAugBar, window.MonthSepBar,
+        window.MonthOctBar, window.MonthNovBar, window.MonthDecBar,
+    ]
+    max_month = max(monthly) if any(monthly) else 1
+    window._month_bar_animations = []
+    for bar, plays in zip(month_bars, monthly):
+        pct = int((plays / max_month) * 100)
+        anim = QPropertyAnimation(bar, b"value")
+        anim.setDuration(max(80, int(1000 * (pct / 100))))
+        anim.setStartValue(0)
+        anim.setEndValue(pct)
+        anim.start()
+        window._month_bar_animations.append(anim)
